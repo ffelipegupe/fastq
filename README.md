@@ -1,1 +1,1 @@
-# FastQ: faster food, no Q.
+# FastQ by Fénix.
