@@ -31,3 +31,4 @@ class Confirmation(BaseModel, Base):
 
     def __init__(self, *args, **kwargs):
         """initializes orders"""
+        super().__init__(*args, **kwargs)
