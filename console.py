@@ -2,7 +2,7 @@
 """ Console module """
 import cmd
 import sys
-from models import storage
+#from models import storage
 from models.base import BaseModel
 from models.user import User
 from models.confirmation import Confirmation
@@ -67,6 +67,11 @@ class FASTCommand(cmd.Cmd):
         """Quit command to exit the program
         """
         return True
+
+    def parse(arg):
+        """Function that parse arguments
+        """
+        return tuple(map(str, arg.split()))
 
     def do_create(self, arg):
         """Usage: create <class>.
@@ -176,11 +181,6 @@ class FASTCommand(cmd.Cmd):
                     elif len(args) == 0:
                         nls.append(find.__str__())
             print(nls)
-
-def parse(arg):
-    """Function that parse arguments
-    """
-    return tuple(map(str, arg.split()))
 
 if __name__ == '__main__':
     FASTCommand().cmdloop()
