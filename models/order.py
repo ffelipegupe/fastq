@@ -20,6 +20,16 @@ if models.storage_t == 'db':
                                             ondelete='CASCADE'),
                                  primary_key=True))
 
+    order_drink = Table('order_drink', Base.metadata,
+                          Column('order_id', String(60),
+                                 ForeignKey('orders.id', onupdate='CASCADE',
+                                            ondelete='CASCADE'),
+                                 primary_key=True),
+                          Column('drink_id', String(60),
+                                 ForeignKey('drinks.id', onupdate='CASCADE',
+                                            ondelete='CASCADE'),
+                                 primary_key=True))
+
 
 class Order(BaseModel, Base):
     """ Order class body """
@@ -30,11 +40,11 @@ class Order(BaseModel, Base):
         price = Column(Integer, nullable=False, default=0)
         foods = relationship("Food", secondary=order_food,
                              viewonly=False)
-        #drinks = relationship("Drink", backref="order",
-                              #cascade="all, delete, delete-orphan")
+        drinks = relationship("Drink", secondary=order_drink,
+                              viewonly=False)
         units = Column(Integer, nullable=False, default=0)
         total = Column(Integer, nullable=False, default=0)
-        user_name = ""
+        user_name = Column(String(25), nullable=False)
         phone = Column(Integer, nullable=False, default=0)
     else:
         order_number = ""
