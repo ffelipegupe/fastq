@@ -20,7 +20,6 @@ class Food(BaseModel, Base):
     else:
         store_id = ""
         name = ""
-        
         price = ""
 
     def __init__(self, *args, **kwargs):

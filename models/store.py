@@ -19,7 +19,10 @@ class Store(BaseModel, Base):
         menu_url = ""
         foods = relationship("Food", backref="store",
                              cascade="all, delete, delete-orphan")
-        #drinks = relationship("Drink", backref="store")
+        drinks = relationship("Drink", backref="store",
+                              cascade="all, delete, delete-orphan")
+        orders = relationship("Order", backref="store",
+                              cascade="all, delete, delete-orphan")
     else:
         name = ""
 

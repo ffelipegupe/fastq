@@ -3,7 +3,7 @@
 
 import models
 from models.base import BaseModel, Base
-#from models.store import Store
+from models.store import Store
 from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String, Integer, ForeignKey
@@ -15,10 +15,12 @@ class Order(BaseModel, Base):
     if models.storage_t == "db":
         __tablename__ = 'orders'
         order_number = Column(String(128), nullable=False)
-        #store_id = Column(String(60), ForeignKey('stores.id'),nullable=False)
+        store_id = Column(String(60), ForeignKey('stores.id'), nullable=False)
         price = Column(Integer, nullable=False, default=0)
-        food_id = ""
-        drink_id = ""
+        foods = relationship("Food", backref="order",
+                             cascade="all, delete, delete-orphan")
+        drinks = relationship("Drink", backref="order",
+                              cascade="all, delete, delete-orphan")
         units = Column(Integer, nullable=False, default=0)
         total = Column(Integer, nullable=False, default=0)
         user_name = ""
