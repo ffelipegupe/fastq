@@ -17,8 +17,12 @@ class Store(BaseModel, Base):
         __tablename__ = 'stores'
         name = Column(String(128), nullable=False)
         menu_url = ""
-        #foods = relationship("Food", backref="store")
-        #drinks = relationship("Drink", backref="store")
+        foods = relationship("Food", backref="store",
+                             cascade="all, delete, delete-orphan")
+        drinks = relationship("Drink", backref="store",
+                              cascade="all, delete, delete-orphan")
+        orders = relationship("Order", backref="store",
+                              cascade="all, delete, delete-orphan")
     else:
         name = ""
 

@@ -16,7 +16,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 classes = {"Store": Store,
-           "Food": Food}
+           "Food": Food,
+           "Order": Order,
+           "Drink": Drink,
+           "Confirmation": Confirmation}
 
 
 class DBStorage:

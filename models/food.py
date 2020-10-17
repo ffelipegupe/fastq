@@ -14,7 +14,7 @@ class Food(BaseModel, Base):
     if models.storage_t == "db":
         __tablename__ = 'foods'
         name = Column(String(128), nullable=False)
-        #store_id = Column(String(60), ForeignKey('stores.id'),nullable=False)
+        store_id = Column(String(60), ForeignKey('stores.id'),nullable=False)
         price = Column(Integer, nullable=False, default=0)
         inventory = Column(Integer, nullable=False, default=0)
     else:
