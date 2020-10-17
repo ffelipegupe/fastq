@@ -15,11 +15,10 @@ class Confirmation(BaseModel, Base):
     if models.storage_t == "db":
         __tablename__ = 'confirmations'
         order_number = Column(Integer, nullable=False, default=0)
-        #store_id = Column(String(60), ForeignKey('stores.id'),nullable=False)
-        #price = Column(Integer, nullable=False, default=0)
-        #order_id = Column(String(60), ForeignKey('orders.id'), nullable=False)
-        #status = Column(String(60), nullable=False)
-        #total = Column(Integer, nullable=False, default=0)
+        store_id = Column(String(60), ForeignKey('stores.id'),nullable=False)
+        order_id = Column(String(60), ForeignKey('orders.id'), nullable=False)
+        status = Column(String(60), nullable=False)
+
     else:
         order_number = ""
         store_id = ""
