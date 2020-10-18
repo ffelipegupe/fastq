@@ -1,21 +1,38 @@
-#from models import 
+#!/usr/bin/python3
+from models import storage
 from flask import Flask, render_template
-from flask_mysqldb import MySQL
+from flask import abort, jsonify, make_response, request
+from models.store import Store
+#from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 # MySQL connection
-app.config['FASTQ_MYSQL_HOST'] = 'localhost'
-app.config['FASTQ_MYSQL_USER'] = 'fastq_user'
-app.config['FASTQ_MYSQL_PWD'] = 'fastq_dev_pwd'
-app.config['FASTQ_MYSQL_DB'] = 'fastq_dev_db'
-mysql = MySQL(app)
+#app.config['FASTQ_MYSQL_HOST'] = 'localhost'
+#app.config['FASTQ_MYSQL_USER'] = 'fastq_user'
+#app.config['FASTQ_MYSQL_PWD'] = 'fastq_dev_pwd'
+#app.config['FASTQ_MYSQL_DB'] = 'fastq_dev_db'
+#mysql = MySQL(app)
 
-@app.route('/')
+@app.teardown_appcontext
+def close_db(error):
+    """ Close Storage """
+    storage.close()
+
+
+@app.errorhandler(404)
+def not_found(error):
+    """ 404 Error
+    ---
+    responses:
+      404:
+        description: a resource was not found
+    """
+    return make_response(jsonify({'error': "Not found"}), 404)
+
+@app.route('/', methods=['GET'])
 def index():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM foods')
-    data = cur.fetchall()
-    return render_template('index.html', datas = data)
+    storez = storage.get(Store, store_id)
+    return jsonify(storez)
 
 
 
