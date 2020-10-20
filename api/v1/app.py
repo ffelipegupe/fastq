@@ -3,6 +3,7 @@ from models import storage
 from flask import Flask, render_template
 from flask import abort, jsonify, make_response, request
 from models.store import Store
+from models.food import Food
 from api.v1.views import app_views
 #from flask_mysqldb import MySQL
 
