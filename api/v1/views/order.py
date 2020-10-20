@@ -50,7 +50,7 @@ def delete_order(order_id):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/store/<store_id>/orders', methods=['POST'],
+@app_views.route('/stores/<store_id>/orders', methods=['POST'],
                  strict_slashes=False)
 def post_order(store_id):
     """
