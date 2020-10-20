@@ -33,11 +33,10 @@ def not_found(error):
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     #storez = storage.get(Store, store_id)
     return render_template('index.html')
-
 
 
 if __name__ == "__main__":
