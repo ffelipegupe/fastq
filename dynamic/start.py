@@ -4,18 +4,20 @@ from flask import Flask, render_template
 from flask import abort, jsonify, make_response, request
 from models.store import Store
 from models.food import Food
+from models.drink import Drink
 from api.v1.views import app_views
-#from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 # MySQL connection
-#app.config['FASTQ_MYSQL_HOST'] = 'localhost'
-#app.config['FASTQ_MYSQL_USER'] = 'fastq_user'
-#app.config['FASTQ_MYSQL_PWD'] = 'fastq_dev_pwd'
-#app.config['FASTQ_MYSQL_DB'] = 'fastq_dev_db'
-#mysql = MySQL(app)
+app.config['FASTQ_MYSQL_HOST'] = 'localhost'
+app.config['FASTQ_MYSQL_USER'] = 'fastq_dev'
+app.config['FASTQ_MYSQL_PWD'] = 'fastq_dev_pwd'
+app.config['FASTQ_MYSQL_DB'] = 'fastq_dev_db'
+app.config['FASTQ_TYPE_STORAGE'] = 'db'
+mysql = MySQL(app)
 
 @app.teardown_appcontext
 def close_db(error):
@@ -35,8 +37,10 @@ def not_found(error):
 
 @app.route('/', methods=['GET'])
 def index():
-    #storez = storage.get(Store, store_id)
-    return render_template('index.html')
+    drink = storage.all(Drink).values()
+    food = storage.all(Food).values()
+    return render_template('index.html', drinks=drink,
+                            foods=food)
 
 
 if __name__ == "__main__":

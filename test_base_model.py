@@ -8,7 +8,7 @@ from models import storage
 from models.confirmation import Confirmation
 
 my_model = Store()
-my_model.name = "Aguila"
+my_model.name = "Oma"
 my_model1 = storage.all(Store).values()
 #my_model1.order_number = 1
 #my_model2 = Confirmation()
@@ -18,6 +18,7 @@ my_model1 = storage.all(Store).values()
 #my_model3.name = "Empanada"
 #my_model.store_id = 'f2f4d135-d076-43b4-8c24-0a815df4e7c3'
 #print(my_model)
+storage.save()
 print(my_model1)
 #print(my_model2)
 #print(my_model3)
