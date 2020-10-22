@@ -11,8 +11,8 @@ my_store = Store(name="JV")
 my_store.save()
 
 
-#my_food = Food(price=4000, store_id=my_store.id, name="Tinto")
-#my_food.save()
+my_food = Food(price=4000, store_id=my_store.id, name="Tinto")
+my_food.save()
 
 my_drink = Drink(price=5000, store_id=my_store.id, name="Cafe")
 my_drink.save()
@@ -27,16 +27,17 @@ my_confirmation = Confirmation(store_id=my_store.id, order_id=my_order.id,
                                order_number=3, status="In Progress")
 my_confirmation.save()
 
-print(my_order)
+#print(my_order)
 
 print(my_store)
 
-print(my_drink)
+#print(my_drink)
 
-print(my_confirmation)
+print(my_food)
 
 # Link order with one food/drink
 my_order.drinks.append(my_drink)
+my_order.foods.append(my_food)
 
 storage.save()
 print(all_order)
