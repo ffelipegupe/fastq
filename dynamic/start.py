@@ -4,6 +4,7 @@ from flask import Flask, render_template
 from flask import abort, jsonify, make_response, request
 from models.store import Store
 from models.food import Food
+from models.drink import Drink
 from api.v1.views import app_views
 
 app = Flask(__name__)
@@ -26,10 +27,12 @@ def not_found(error):
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
-@app.route('/index', methods=['GET'])
+@app.route('/variables1', methods=['GET'])
 def index():
-    #storez = storage.get(Store, store_id)
-    return render_template('index.html')
+    drinks_list = storage.all(Drink).values()
+    drinks_list = sorted(drinks_list, key=lambda k: k.name)
+    return render_template('variables1.html',
+                            drinks=drinks_list)
 
 
 if __name__ == "__main__":
