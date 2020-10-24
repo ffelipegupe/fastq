@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastQ</title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/check.css">
+</head>
+<body class="mb-2">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Restaurant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Theater </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">about</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#"></a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Carrito</button>
+          </form>
+        </div>
+      </nav>
+      
+    <div class="mx-auto mt-4" style="width: 90%;">
+        <table>
+            <tr>
+                <th>
+                    <h4>Your order</h4>
+                </th>
+                <th>
+                    <h4 class="text-center">Price</h4>
+                </th>
+            </tr>
+            <tr>
+                
+                <td>Cerveza Aguila
+                    <div class="input-group mt-3 rights" style="width:50%">
+                        <span class="input-group-btn">
+                           <button class="btn btn-red btn-minuse" type="button">-</button>
+                        </span>
+                        <input type="text" class="form-control no-padding add-color text-center height-25" maxlength="3" value="1">
+                        <span class="input-group-btn">
+                           <button class="btn btn-red btn-pluss" type="button">+</button>
+                        </span>
+                     </div>
+                    <div>
+                        <img src="../static/images/taza-cafe-salpicaduras-granos-que-caen_159938-32.jpg">
+                    </div>
+                </td>
+                <td class="text-center">$35.000</td>
+            </tr>
+            <tr>
+    
+                <td>Kebab
+                    <div class="input-group mt-3 rights" style="width:50%">
+                        <span class="input-group-btn">
+                           <button class="btn btn-red btn-minuse" type="button">-</button>
+                        </span>
+                        <input type="text" class="form-control no-padding add-color text-center height-25" maxlength="3" value="1">
+                        <span class="input-group-btn">
+                           <button class="btn btn-red btn-pluss" type="button">+</button>
+                        </span>
+                     </div>
+                     <div>
+                        <img src="../static/images/kebab.jpg">
+                    </div>
+                </td>
+                <td class="text-center">$5.000</td>
+    
+            </tr>
+            <tr>
+    
+                <td>Bistec
+                    <div class="input-group mt-3 rights" style="width:50%">
+                        <span class="input-group-btn">
+                           <button class="btn btn-red btn-minuse" type="button">-</button>
+                        </span>
+                        <input type="text" class="form-control no-padding add-color text-center height-25" maxlength="3" value="1">
+                        <span class="input-group-btn">
+                           <button class="btn btn-red btn-pluss" type="button">+</button>
+                        </span>
+                     </div>
+                     <div>
+                        <img src="../static/images/bistec.jpg">
+                    </div>
+                </td>
+                <td class="text-center">$3.000</td>
+            </tr>
+            <tr>
+    
+                <td>
+                    <h4>Total</h4>
+                </td>
+                <td class="text-center">$43.000</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="mx-auto mt-4" style="width: 90%;">
+      <form>
+        <fieldset>
+          <legend>  Personal information</legend>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mobile number</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="320-321-1301">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
+        </div>
+        
+        <form>
+            <script
+              src="https://checkout.wompi.co/widget.js"
+              data-render="button"
+              data-public-key="pub_test_Dz7aITIDihFa6tCd7AWFFBZ0KkhkrptP"
+              data-currency="COP"
+              data-amount-in-cents="4950000"
+              data-reference="4XMPGKWWPKWQ"
+              >
+            </script>
+          </form>
+        </fieldset>
+      </form>
+    </div>
+
+</body>
+</html>

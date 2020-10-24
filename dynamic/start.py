@@ -6,22 +6,14 @@ from models.store import Store
 from models.food import Food
 from models.drink import Drink
 from api.v1.views import app_views
-from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
+<<<<<<< HEAD
 # MySQL connection
 app.config['FASTQ_MYSQL_HOST'] = 'localhost'
 app.config['FASTQ_MYSQL_USER'] = 'fastq_dev'
-app.config['FASTQ_MYSQL_PWD'] = 'fastq_dev_pwd'
-app.config['FASTQ_MYSQL_DB'] = 'fastq_dev_db'
-app.config['FASTQ_TYPE_STORAGE'] = 'db'
-mysql = MySQL(app)
-
-@app.teardown_appcontext
-def close_db(error):
-    """ Close Storage """
     storage.close()
 
 
@@ -35,12 +27,25 @@ def not_found(error):
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
-@app.route('/', methods=['GET'])
+@app.route('/variables1', methods=['GET'])
 def index():
+<<<<<<< HEAD
     drink = storage.all(Drink).values()
     food = storage.all(Food).values()
     return render_template('index.html', drinks=drink,
                             foods=food)
+=======
+    drinks_list = storage.all(Drink).values()
+    drinks_list = sorted(drinks_list, key=lambda k: k.name)
+    return render_template('variables1.html',
+                            drinks=drinks_list)
+>>>>>>> de48ec698c49b9cb437d3f788bcd20bdd4c4dd6f
+
+@app.route('/orders/<id>', methods=['POST'])
+def order(id):
+    """ Order checkout endpoint """
+    orders = storage.all(Order).values()
+    return render_template('checkout.html', orders = orders)
 
 
 if __name__ == "__main__":

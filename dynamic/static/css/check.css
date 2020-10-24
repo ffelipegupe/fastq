@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  img {
+    display: block;
+    max-width: 30%;
+    height: auto;
+    margin-left: 170px;
+    margin-top: -60px;
+    
+  }
+  .tops {
+      padding-top: -40%;
+      margin-bottom: -40px;
+  }
+
+  .rights {
+      margin-left: -10px;
+  }
