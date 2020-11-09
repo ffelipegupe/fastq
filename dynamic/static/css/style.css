@@ -9,7 +9,7 @@ a{
 	text-decoration:none;
 }
 .box{
-	width:180px;
+	width:270px;
 	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
 	border-radius: 10px;
 	overflow: hidden;
@@ -27,10 +27,10 @@ a{
 }
 .detail-box{
 	width: 100%;
-	display: flex;
+    display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 5px 10px;
+	padding: 2px 5px;
 	box-sizing: border-box;
 	font-family: calibri;
 }
@@ -67,25 +67,7 @@ a{
 	justify-content: center;
 	align-items: center;
 }
-.buy-btn{
-	width:160px;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #FFFFFF;
-	color:#252525;
-	font-weight: 700;
-	letter-spacing: 1px;
-	font-family: calibri;
-	border-radius: 20px;
-	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
-}
-.buy-btn:hover{
-	color:#FFFFFF;
-	background-color: #f15fa3;
-	transition: all ease 0.3s;
-}
+
 .overlay{
 	visibility: hidden;
 }
@@ -132,3 +114,15 @@ footer .footer-below {
   padding: 25px 0;
   background-color: #333333;
 }
+
+button {
+	margin: 4px;
+	cursor: pointer;
+  }
+  input {
+	text-align: center;
+	width: 40px;
+	margin: 4px;
+	color: salmon;
+  }
+  
